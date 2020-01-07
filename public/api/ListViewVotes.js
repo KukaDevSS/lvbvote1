@@ -18,7 +18,7 @@ function show_data() {
                          <td id="nametable">${childdata.email}</td>
                         <td id="nametable">${childdata.phone}</td>
                         <td id="nametable" style="color:blue;">${childdata.score}</td>
-                        <td id="nametable1">
+                        <td id="nametable">
                             <button id="${key}" onclick="deleteData(id)" class="btn btn-danger" style="font-family:lao notisan; margin-top:10px;padding-left:20px;padding-right:20px">ລົບລາຍການ</button>
                         </td>
                 </tr>

@@ -18,7 +18,7 @@ function show_data() {
                          <td id="nametable">${childdata.email}</td>
                         <td id="nametable">${childdata.phone}</td>
                         <td id="nametable" style="color:blue;">${childdata.score}</td>
-                        <td style="margin-top:3%;">
+                        <td style="padding-top:4%;">
                         <button id="${key}" onclick="Update_score(id)" class="btn btn-success" style="font-family:lao notisan; margin-top:10px;padding-left:20px;padding-right:20px">ເພີ່ມຄະແນນ</button>
                         <button id="${key}" onclick="down_score(id)" class="btn btn-danger" style="font-family:lao notisan; margin-top:10px;padding-left:10px;padding-right:10px">ຫຼຸດຄະແນນ</button>
                         </td>
@@ -83,7 +83,7 @@ function logout() {
     });
 }
 
-function down_score() {
+function down_score(id) {
     var current_score;
     get_score_down(id, current_score);
 }
@@ -136,8 +136,7 @@ function update_data_down(id, current_score) {
     var firebaseRef = firebase.database().ref("user_vote" + "/" + "user_list" + "/" + id);
     firebaseRef.update(update);
     document.getElementById("alert").hidden = false;
-    // 1,000 means 1 second.
-    cinterval = setInterval('countdown_timer()', 1000);
+    window.location.reload();
 }
 
 function update_data(id, current_score) {
@@ -149,6 +148,5 @@ function update_data(id, current_score) {
     var firebaseRef = firebase.database().ref("user_vote" + "/" + "user_list" + "/" + id);
     firebaseRef.update(update);
     document.getElementById("alert").hidden = false;
-    // 1,000 means 1 second.
-    cinterval = setInterval('countdown_timer()', 1000);
+    window.location.reload();
 }
