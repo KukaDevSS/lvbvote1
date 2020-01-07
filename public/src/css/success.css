@@ -1,0 +1,20 @@
+.alert_success {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 8%;
+    align-self: center;
+}
+
+body {
+    font-family: lao notisan;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(0, 96, 206);
+}
+
+
+#success {
+    margin-top: 20px;
+}

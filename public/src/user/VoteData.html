@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ໜ້າຕ່າງໂຫວດ</title>
+    <script src="../../api/ShowVoteUser.js"></script>
+    <link rel="stylesheet" href="../css/admin/ViewResult.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="alert1" style="text-align: center;font-family:lao notisan;">
+        <div class="alert alert-primary">
+            <h4>ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກິດລາວຫວຽດ</h4>
+            <strong>ກະລຸນາເລືອກລາຍການໂຫວດ</strong>
+        </div>
+    </div>
+    <div class="row" id="showVote">
+    </div>
+
+    <input type="hidden" id="vote_status" value="voted">
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="../../api/database.js">
+    </script>
+</body>
+
+</html>

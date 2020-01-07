@@ -1,0 +1,50 @@
+body {
+    /* background: -webkit-linear-gradient(left, rgb(63, 153, 255), #0071db); */
+    font-family: lao notisan;
+}
+
+th {
+    font-family: lao notisan;
+}
+
+.tabel {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+}
+
+.picture {
+    width: 150px;
+    height: 150px;
+}
+
+thead {
+    background-color: rgb(0, 85, 241);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-family: lao notisan;
+    color: rgb(0, 85, 241);
+}
+
+#data {
+    border-radius: 5px;
+}
+
+td {
+    font-family: lao notisan;
+}
+
+#nametable {
+    padding-top: 5%;
+}
+
+#nametable1 {
+    padding-top: 4.5%;
+}
+
+th {
+    text-align: center;
+}

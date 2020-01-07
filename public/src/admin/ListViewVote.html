@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ລາຍການໂຫວດທັງໝົດ</title>
+    <script src="../../api/ListViewVote.js"></script>
+    <link rel="stylesheet" href="../css/admin/ViewResult.css">
+    <link rel="stylesheet" href="../css/admin/ListViewVote.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#" style="font-family: lao notisan;">LaoVietBank</a>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">ໜ້າຫຼັກ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ລາຍການໂຫວດ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./AddData.html">ເພີ່ມລາຍການໂຫວດ</a>
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ListViewVote.html">ລາຍການໂຫວດທັງໝົດ</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ຜູ່ໃຊ້ລະບົບ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./addUser.html">ເພີ່ມຜູ່ໃຊ້ລະບົບ</a>
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ListAlluser.html">ຜູ່ໃຊ້ທັງໝົດ</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="./ViewResult.html" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ຜົນໂຫວດ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ListResult.html">ເບີ່ງຜົນໂຫວດ</a>
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ViewResult.html">ການຈັດການ ການໂຫວດ</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-danger my-2 my-sm-0" style="font-family: lao notisan; color:white"
+                    onclick="logout()" type="button">ອອກຈາກລະບົບ</button>
+            </form>
+        </div>
+    </nav>
+    <div id="table">
+        <h1>ລາຍການໂຫວດທັງໝົດ</h1>
+        <div class="tabel" name="data">
+            <table class="table table-striped" id="data">
+                <thead>
+                    <tr>
+                        <th scope="col">ລຳດັບ</th>
+                        <th scope="col">ຮູບພາບ</th>
+                        <th scope="col">ຊື່ ແລະ ນາມສະກຸນ</th>
+                        <th scope="col">ຕໍ່າແໜ່ງ</th>
+                        <th scope="col">ສາຂາ</th>
+                        <th scope="col">ອີເມວ</th>
+                        <th scope="col">ເບີໂທລະສັບ</th>
+                        <th scope="col">ຄະແນນ</th>
+                        <th scope="col">ການຈັດການ</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <!-- <tbody id="showTable">
+                 <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>o
+                    <th scpe="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="../../api/database.js">
+    </script>
+</body>
+
+</html>

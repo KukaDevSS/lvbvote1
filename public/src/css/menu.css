@@ -1,0 +1,91 @@
+.column {
+    float: left;
+    width: 35%;
+    padding: 10px;
+    height: 100%;
+    text-align: center;
+    padding: 5%;
+    border-radius: 8px;
+    /* Should be removed. Only for demonstration */
+}
+
+#one {
+    margin-left: 12%;
+    margin-right: 2%;
+    margin-top: 1%;
+    background-color: rgb(0, 120, 240);
+    /* For browsers that do not support gradients */
+    background-image: linear-gradientrgb(#2196F3, #1976D2);
+    /* Standard syntax (must be last) */
+    color: white;
+}
+
+#two {
+    margin-right: 10%;
+    margin-left: 2%;
+    background-color: #4CAF50;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradientrgb(rgb(0, 119, 255), (0, 119, 255));
+    /* Standard syntax (must be last) */
+    margin-top: 1%;
+    color: white;
+}
+
+#three {
+    margin-left: 12%;
+    margin-right: 2%;
+    margin-top: 2%;
+    background-color: rgb(0, 120, 240);
+    /* For browsers that do not support gradients */
+    background-image: linear-gradientrgb(#2196F3, #1976D2);
+    /* Standard syntax (must be last) */
+    color: white;
+}
+
+
+#two2 {
+    margin-right: 10%;
+    margin-left: 2%;
+    background-color: #F4511E;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradientrgb(rgb(255, 49, 49), (0, 119, 255));
+    /* Standard syntax (must be last) */
+    margin-top: 2%;
+    color: white;
+}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.Main {
+    padding: 2%;
+    height: 100%;
+}
+
+h2 {
+    font-family: lao notisan;
+}
+
+div.column {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+h1 {
+    font-family: lao notisan;
+    margin-top: 30px;
+    text-align: center;
+    color: #17469E;
+}
+
+.add_Vote {
+    widows: 60px;
+    height: 60px;
+    padding-bottom: 10px;
+}

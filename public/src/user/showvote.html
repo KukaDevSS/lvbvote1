@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ຜົນໂຫວດທັງໝົດ</title>
+    <script src="../../api/success_vote.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/success.css">
+
+</head>
+
+<body>
+    <div class="alert_success">
+        <h2>ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກິດ ລາວ-ຫວຽດ</h2>
+        <div class="alert alert-success" id="success">
+            <strong>ຜົນໂຫວດທັງໝົດ!</strong>
+
+        </div>
+
+        <!-- <button class="btn btn-success" onclick="SetUserName()">click get session</button> -->
+        <input type="hidden" id="hdnSession" value="success" />
+
+        <button class="btn btn-danger" onclick="logout()"> ອອກຈາກລະບົບ</button>
+    </div>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="../../api/database.js"></script>
+</body>
+
+</html>

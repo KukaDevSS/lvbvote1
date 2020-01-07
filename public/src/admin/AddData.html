@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ເພີ່ມລາຍການໂຫວດ</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/addData.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#" style="font-family: lao notisan;">LaoVietBank</a>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">ໜ້າຫຼັກ <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ລາຍການໂຫວດ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="#">ເພີ່ມລາຍການໂຫວດ</a>
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ListViewVote.html">ລາຍການໂຫວດທັງໝົດ</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ຜູ່ໃຊ້ລະບົບ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./addUser.html">ເພີ່ມຜູ່ໃຊ້ລະບົບ</a>
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ListAlluser.html">ຜູ່ໃຊ້ທັງໝົດ</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="./ViewResult.html" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ຜົນໂຫວດ
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ListResult.html">ເບີ່ງຜົນໂຫວດ</a>
+                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
+                            href="./ViewResult.html">ການຈັດການ ການໂຫວດ</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-danger my-2 my-sm-0" style="font-family: lao notisan; color:white"
+                    onclick="logout()" type="button">ອອກຈາກລະບົບ</button>
+            </form>
+        </div>
+    </nav>
+    <div class="screen">
+        <div class="container register">
+            <div class="row">
+                <div class="col-sm-3 register-left">
+                    <img src="../images/LVB.png" class="LVBLOGO" alt="" />
+                    <h3>ຍິນດີຕ້ອນຮັບ</h3>
+                    <p>ສູ່ລະບົບໂຫວດຂອງທະນາຄານຮ່ວມທຸລະກິດລາວ - ຫວຽດນາມ</p>
+                    <input type="submit" name="" value="ເບີ່ງລາຍການໂຫວດ" onclick="view_list()" /><br />
+                </div>
+                <div class="col-md-9 register-right">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">ເພີ່ມລາຍການໂຫວດ</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="ຊື່ *" id="name"
+                                            required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="ນາມສະກຸນ *" id="lastname"
+                                            required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="ອີເມວ *" id="email"
+                                            required />
+                                    </div>
+                                    <div class="form-group" maxlegnth="4">
+                                        <input type="text" class="form-control" placeholder="ຄະແນນ *" id="score"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="ຕໍ່າແໜ່ງ *" id="position"
+                                            required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="ສາຂາ *" id="branch"
+                                            required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" minlength="10" maxlength="11" name="txtEmpPhone" required
+                                            class="form-control" placeholder="ເບີໂທລະສັບ *" id="phone" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" id="picture" required />
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12" id="status">
+                                    <h6>ສະຖານະອັບໂຫຼດຮູບພາບ</h6>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="progress"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12" style="float:right; padding-left:30px;">
+                                    <!-- <input type="submit" class="btnRegister" id="btn_register"
+                                        onclick="add_to_firebase()" value="Register" /> -->
+                                    <button type="button" class="btnRegister" id="btn_register"
+                                        onclick="add_to_firebase1()">ເພີ່ມລາຍການໂຫວດ</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase.js"></script>
+    <script src="../../api/database.js"></script>
+    <script src="../../api/AddData.js"></script>
+</body>
+
+</html>

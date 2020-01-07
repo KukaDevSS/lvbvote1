@@ -1,0 +1,80 @@
+.row {
+    padding-top: 20px;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.col-sm-4 {
+    border-radius: 50px;
+}
+
+body {
+
+    font-family: lao notisan;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 300px;
+    /* padding: 2%; */
+    border-radius: 15px;
+    box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.row {
+    padding-left: 9%;
+    padding-right: 9%;
+    /* background: black; */
+    margin-left: 2%;
+}
+
+#card {
+    text-align: center;
+}
+
+h1 {
+    margin-top: 30px;
+    font-family: lao notisan;
+    text-align: center;
+    color: rgb(1, 90, 192);
+}
+
+#table h1 {
+    margin-top: 20px;
+    font-family: lao notisan;
+    text-align: center;
+    color: blue;
+}
+
+#score {
+    margin: 10px;
+    width: 100%;
+}
+
+h5 {
+    font-family: lao notisan;
+    color: rgb(0, 130, 236);
+    font-weight: bolder;
+}
+
+.nav-link {
+    font-family: lao notisan;
+    text-align: center;
+    margin-left: 10px;
+}
+
+#alert {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: lao notisan;
+    text-align: center;
+}
+
+#alert1 {
+    margin-left: 3%;
+    margin-right: 3%;
+    font-family: lao notisan;
+    text-align: center;
+    padding-top: 2%;
+}
