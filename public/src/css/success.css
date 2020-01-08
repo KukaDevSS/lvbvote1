@@ -5,6 +5,14 @@
     align-self: center;
 }
 
+.alert_success1 {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%;
+    align-self: center;
+}
+
+
 body {
     font-family: lao notisan;
     text-align: center;

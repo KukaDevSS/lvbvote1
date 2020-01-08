@@ -15,8 +15,6 @@ function show_data() {
                 <td id="nametable">${childdata.name + childdata.lastname}</td>
                 <td id="nametable">${childdata.position}</td>
                          <td id="nametable">${childdata.branch}</td>
-                         <td id="nametable">${childdata.email}</td>
-                        <td id="nametable">${childdata.phone}</td>
                         <td id="nametable" style="color:blue;">${childdata.score}</td>
                         <td style="padding-top:4%;">
                         <button id="${key}" onclick="Update_score(id)" class="btn btn-success" style="font-family:lao notisan; margin-top:10px;padding-left:20px;padding-right:20px">ເພີ່ມຄະແນນ</button>
