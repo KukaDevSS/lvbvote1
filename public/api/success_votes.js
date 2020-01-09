@@ -48,3 +48,7 @@ function logout() {
     });
 
 }
+
+function ViewResult() {
+    window.location.href = "../user/showvote.html";
+}

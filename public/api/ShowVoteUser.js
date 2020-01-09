@@ -74,21 +74,21 @@ function update_data(id, current_score, email, uid) {
 
 function show_data() {
 
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            var email = user.email;
-            var uid = user.uid;
-            var firebaseRef = firebase.database().ref("user_vote/user_list").orderByChild("score").limitToLast(5);
-            firebaseRef.once("value", function (snapshot) {
-                snapshot.forEach(function (childSnapshot) {
-                    var key = childSnapshot.key;
-                    var childdata = childSnapshot.val();
-                    // console.log(childdata);
-                    // console.log(childdata.name);
-                    // console.log(key);
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //     if (user) {
+    //         // User is signed in.
+    //         var email = user.email;
+    //         var uid = user.uid;
+    var firebaseRef = firebase.database().ref("user_vote/user_list").orderByChild("score");
+    firebaseRef.once("value", function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var key = childSnapshot.key;
+            var childdata = childSnapshot.val();
+            // console.log(childdata);
+            // console.log(childdata.name);
+            // console.log(key);
 
-                    document.getElementById("showVote").innerHTML += ` 
+            document.getElementById("showVote").innerHTML += ` 
                     <div class="col-sm-4" style="padding-left:4%;padding-right:4%;padding-top:4%;">
                     <div class="card card-cascade">
                         <div class="view view-cascade overlay">
@@ -109,34 +109,12 @@ function show_data() {
         
                     </div>
                 </div>`
-                });
-            }, function (error) {
-                console.log("Error: " + error.code);
-            });
-            // var firebaseRef = firebase.database().ref("user_vote/user_list").orderByChild("id");
-            // firebaseRef.once("value", function (snapshot) {
-            //     snapshot.forEach(function (childSnapshot) {
-            //         var key = childSnapshot.key;
-            //         var childdata = childSnapshot.val();
-            //         document.getElementById("card").innerHTML += `<div class="col"> <div class="card" style="width: 18rem;">
-            //                     <img class="card-img-top" src="" alt="Card image cap">
-            //                     <div class="card-body">
-            //                         <h5>${childdata.name}</h5>
-            //                         <p>${childdata.position}</p>
-            //                         <p>${childdata.score}</p>
-            //                         <img src="${childdata.img_url}">
-            //                     <button class="btn btn-success" name="button_vote" id="${key}" onclick="vote(id)">vote</button>
-            //                     </div>
-            //                 </div> 
-            //                 </div>`
-
-            //     });
-
-            // }, function (error) {
-            //     console.log("Error: " + error.code);
-            // });
-        }
+        });
+    }, function (error) {
+        console.log("Error: " + error.code);
     });
+    // }
+    // });
 }
 
 function get_score(id, current_score) {
