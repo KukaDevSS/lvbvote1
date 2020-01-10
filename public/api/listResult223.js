@@ -12,10 +12,10 @@ function show_data() {
                 <tr>
                 <th style="text-align:center;" id="nametable">${k+=1}</th>
                 <td><img src="${childdata.img_url}" class="picture"></td>
-                <td id="nametable">${childdata.name + childdata.lastname}</td>
+                <td id="nametable"><h3>${childdata.name} ${childdata.lastname}</h3></td>
                 <td id="nametable">${childdata.position}</td>
                          <td id="nametable">${childdata.branch}</td>
-                        <td id="nametable" style="color:blue;">${childdata.score}</td>
+                        <td id="nametable" style="color:blue;"><h2>${childdata.score}</h2></td>
                         <td style="padding-top:4%;">
                         <button id="${key}" onclick="Update_score(id)" class="btn btn-success" style="font-family:lao notisan; margin-top:10px;padding-left:20px;padding-right:20px">ເພີ່ມຄະແນນ</button>
                         <button id="${key}" onclick="down_score(id)" class="btn btn-danger" style="font-family:lao notisan; margin-top:10px;padding-left:10px;padding-right:10px">ຫຼຸດຄະແນນ</button>

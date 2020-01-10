@@ -1,9 +1,9 @@
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) {
-            window.location.href = "../index.html";
-        } else {
+        if (user) {
             loadData();
+        } else {
+            window.location.href = "../../index.html";
         }
     });
 }
@@ -36,7 +36,7 @@ function updateData() {
     window.location.reload();
 }
 
-function logout() {
+function logout1() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             var email = user.email;
@@ -48,11 +48,12 @@ function logout() {
                 status: false
             });
             firebase.auth().signOut().then(function () {
-                window.location.href = "../index.html";
+                window.location.href = "../../index.html"
             }).catch(function (error) {
                 // An error happened.
                 console.log(error.message);
             });
         }
     });
+
 }
