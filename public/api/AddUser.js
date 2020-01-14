@@ -33,6 +33,15 @@ function create_user() {
     firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function (error) {
         var error_code = error.code;
         var errorMessage = error.message;
+        var add_to_user = {
+            email: email,
+            pass: pass,
+        }
+        firebase.database().ref("All_user_added" + "/" + "user_list").push(add_to_user).then(function () {
+            console.log("success insert to firebase");
+        }).catch(function (error) {
+            console.log(error.message);
+        });
 
         if (error_code == "auth/weak-password") {
             alert("this password is too weak");
@@ -44,13 +53,13 @@ function create_user() {
     });
 }
 
-function logout() {
-    firebase.auth().signOut().then(function () {
-        window.location.href = "../../index.html"
-    }).catch(function (error) {
-        // An error happened.
-    });
-}
+// function logout() {
+//     firebase.auth().signOut().then(function () {
+//         window.location.href = "../../index.html"
+//     }).catch(function (error) {
+//         // An error happened.
+//     });
+// }
 
 
 function logout() {
