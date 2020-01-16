@@ -21,8 +21,25 @@ function login_vote() {
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
                     // User is signed in.
-                    var email = user.email;
+                    var email_user = user.email;
                     var uid = user.uid;
+                    var paths = firebase.database().ref("All_user_added" + "/" + "user_list");
+                    paths.once("value", function (snapshot) {
+                        snapshot.forEach((childSnapshot) => {
+                            var key = childSnapshot.key;
+                            var childdata = childSnapshot.val();
+                            if (childdata.email == email && childdata.pass == password) {
+                                var statuspath = firebase.database().ref("All_user_added" + "/" + "user_list" + "/" + key);
+                                statuspath.set({
+                                    email: email,
+                                    pass: password,
+                                    status: true,
+                                    vote: false
+                                });
+                            }
+                        });
+                    });
+
                     var login_user = firebase.database().ref("Login_user" + "/" + uid);
                     login_user.set({
                         email: email,

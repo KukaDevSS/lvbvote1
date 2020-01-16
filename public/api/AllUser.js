@@ -1,3 +1,42 @@
+function show_data() {
+    var firebaseRef = firebase.database().ref("All_user_added" + "/" + "user_list");
+    var count = 0;
+    firebaseRef.once("value", function (snapshot) {
+        snapshot.forEach((childSnapshot) => {
+            var key = childSnapshot.key;
+            var childdata = childSnapshot.val();
+            var status = childdata.status;
+            var vote = childdata.vote;
+            if (status == true) {
+                status = "ເຂົ້າໃຊ້ລະບົບ";
+            } else {
+                status = "ບໍ່ເຂົ້າໃຊ້ລະບົບ";
+            }
+
+            if (vote == true) {
+                vote = "ໂຫວດຮຽບຮ້ອຍແລ້ວ";
+            } else {
+                vote = "ບໍ່ໂຫວດ"
+            }
+            count += 1;
+            document.getElementById("data").innerHTML += ` 
+            <tbody>
+                <tr>
+                <th>${count}</th>
+             
+                <td>${childdata.email}</td>
+                <td>${childdata.pass}</td>
+                <td>${status}</td>
+                <td>${vote}</td>
+                </tr>
+            </tbody>`
+
+        });
+    }, function (error) {
+        console.log("Error: " + error.code);
+    });
+}
+
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -16,50 +55,9 @@ window.onload = function () {
             window.location.href = "../../index.html";
         }
     });
+    show_data();
 }
 
-function create_user() {
-    var email = document.getElementById("email").value;
-    var pass = document.getElementById("pass").value;
-
-    if (email.length < 4) {
-        alert("ກະລູນາປ້ອນອີເມວ");
-        return;
-    }
-    if (pass.length < 4) {
-        alert("ກະລຸນາປ້ອນລະຫັດຜ່ານ");
-        return;
-    }
-    firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function (error) {
-        var error_code = error.code;
-        var errorMessage = error.message;
-        var add_to_user = {
-            email: email,
-            pass: pass,
-        }
-        firebase.database().ref("All_user_added" + "/" + "user_list").push(add_to_user).then(function () {
-            console.log("success insert to firebase");
-        }).catch(function (error) {
-            console.log(error.message);
-        });
-
-        if (error_code == "auth/weak-password") {
-            alert("this password is too weak");
-        } else {
-            alert(errorMessage);
-        }
-        console.log(error);
-
-    });
-}
-
-// function logout() {
-//     firebase.auth().signOut().then(function () {
-//         window.location.href = "../../index.html"
-//     }).catch(function (error) {
-//         // An error happened.
-//     });
-// }
 
 
 function logout() {

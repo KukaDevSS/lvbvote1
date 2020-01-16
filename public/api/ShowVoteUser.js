@@ -48,12 +48,39 @@ function vote(id) {
 
 function update_data(id, current_score, email, uid) {
     var update_score = current_score;
-    update_score = current_score - 1;
+    update_score = current_score + 1;
     var update = {
         score: update_score,
     };
     var firebaseRef = firebase.database().ref("user_vote" + "/" + "user_list" + "/" + id);
     firebaseRef.update(update);
+
+    document.getElementById(id).disabled = true;
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var email1 = user.email;
+            // var pass = user.pass;
+            var paths = firebase.database().ref("All_user_added" + "/" + "user_list");
+            paths.once("value", function (snapshot) {
+                snapshot.forEach((childSnapshot) => {
+                    var key = childSnapshot.key;
+                    var childdata = childSnapshot.val();
+                    if (childdata.email == email) {
+                        var statuspath = firebase.database().ref("All_user_added" + "/" + "user_list" + "/" + key);
+                        statuspath.set({
+                            email: email1,
+                            // pass: pass,
+                            status: true,
+                            vote: true,
+                        });
+                    }
+                });
+            }).then(() => {
+                // window.location.href = "./success_vote.html";
+            });;
+        }
+    });
 
     //insert data time vote of user voted
     var time = new Date();
@@ -68,17 +95,10 @@ function update_data(id, current_score, email, uid) {
         timeM: timeM,
     });
     // var get_voted = document.getElementById("vote_status").value;
-    window.location.href = "./success_vote.html";
 
 }
 
 function show_data() {
-
-    // firebase.auth().onAuthStateChanged(function (user) {
-    //     if (user) {
-    //         // User is signed in.
-    //         var email = user.email;
-    //         var uid = user.uid;
     var firebaseRef = firebase.database().ref("user_vote/user_list").orderByChild("score");
     firebaseRef.once("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {

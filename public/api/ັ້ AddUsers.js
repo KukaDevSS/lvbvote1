@@ -1,29 +1,21 @@
 function show_data() {
-    var firebaseRef = firebase.database().ref("Login_user");
+    var firebaseRef = firebase.database().ref("All_user_added" + "/" + "user_list");
     var count = 0;
     firebaseRef.once("value", function (snapshot) {
         snapshot.forEach((childSnapshot) => {
             var key = childSnapshot.key;
             var childdata = childSnapshot.val();
-            count += 1;
-            var status = childdata.status;
-            if (status == true) {
-                status = "ເຂົ້າໃຊ້ລະບົບ";
-            } else {
-                status = "ອອກຈາກລະບົບ";
-            }
-            document.getElementById("data").innerHTML += ` 
-            <tbody>
-                <tr>
-                <th>${count}</th>
-                <td>${childdata.uid}</td>
-                <td>${childdata.email}</td>
-                <td name="status">${status}</td>
-                </tr>
-            </tbody>`
-            var data = document.getElementsByName("status").values;
-            console.log(data);
+            console.log(childdata);
 
+            // count += 1;
+            // document.getElementById("data").innerHTML += ` 
+            // <tbody>
+            //     <tr>
+            //     <th>${count}</th>
+            //     <td>${childdata.email}</td>
+            //     <td>${childdata.pass}</td>
+            //     </tr>
+            // </tbody>`
         });
     }, function (error) {
         console.log("Error: " + error.code);

@@ -43,6 +43,8 @@ picture.addEventListener('change', function (e) {
             // //     fileName: fileName[0],
             // //     url: url,
             // // })
+            console.log(url);
+
             add_to_firebase(url);
             // console.log(url);
         }).catch(function (error) {
@@ -52,22 +54,20 @@ picture.addEventListener('change', function (e) {
 
 });
 
-function add_to_firebase1() {
-    var name = document.getElementById("name").value;
-    var lastname = document.getElementById("lastname").value;
-    var position = document.getElementById("position").value;
-    var score = document.getElementById("score").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var branch = document.getElementById("branch").value;
-    var picture = document.getElementById("picture").value;
-    if (picture == "" || name == "" || lastname == "" || position == "" || score == "" || email == "" || phone == "" || branch == "") {
-        alert("ກະລູນາປ້ອນຊໍ້ມູນໃຫ່ຄົບຖ້ວນ");
-        return;
-    } else {
-        window.location.href = "../admin/menu.html"
-    }
-}
+// function add_to_firebase1() {
+//     var name = document.getElementById("name").value;
+//     var lastname = document.getElementById("lastname").value;
+//     var position = document.getElementById("position").value;
+//     var score = document.getElementById("score").value;
+//     var email = document.getElementById("email").value;
+//     var phone = document.getElementById("phone").value;
+//     var branch = document.getElementById("branch").value;
+//     var picture = document.getElementById("picture").value;
+//     if (picture == "" || name == "" || lastname == "" || position == "" || score == "" || email == "" || phone == "" || branch == "") {
+//         alert("ກະລູນາປ້ອນຊໍ້ມູນໃຫ່ຄົບຖ້ວນ");
+//         return;
+//     }
+// }
 
 function add_to_firebase(url) {
     var img_url = url;
@@ -106,6 +106,7 @@ function insert_data(name, lastname, position, score, email, phone, branch, img_
     }
     firebase.database().ref("user_vote" + "/" + "user_list").push(add_to_list).then(function () {
         console.log("success insert to firebase");
+        window.location.href = "../admin/ListViewVote.html"
     }).catch(function (error) {
         console.log(error.message);
     });
