@@ -22,8 +22,7 @@ function show_data() {
             document.getElementById("data").innerHTML += ` 
             <tbody>
                 <tr>
-                <th>${count}</th>
-             
+                <td>${count}</td>
                 <td>${childdata.email}</td>
                 <td>${childdata.pass}</td>
                 <td>${status}</td>
@@ -79,4 +78,8 @@ function logout() {
             });
         }
     });
+}
+
+function menu() {
+    window.location.href = "../admin/menu.html"
 }

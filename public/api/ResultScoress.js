@@ -15,11 +15,11 @@ function loadData() {
             var key = childSnapshot.key;
             var childdata = childSnapshot.val();
             document.getElementById("card").innerHTML += `
-            <div class="col-sm-4">
+            <div class="col-sm-4"style="padding-left:4%;padding-right:4%;padding-top:1%;">
                 <div class="card">
                     <div class="card-body">
                         <img src="${childdata.img_url}"
-                            style="width: 100%;height:280px;border-radius: 8px;">
+                            style="width: 100%;height:220px;border-radius: 4px;">
                         <h5 class="card-title" style="padding-top: 15px;">${childdata.name + childdata.lastname}</h5>
                         <h5 class="card-title" style="padding-top: 15px;">ຕ່ຳແໜ່ງ: ${childdata.position}</h5>                       
                         <p class="card-text">ສາຂາ: ${childdata.branch}</p>

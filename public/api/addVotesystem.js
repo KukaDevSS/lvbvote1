@@ -29,7 +29,6 @@ picture.addEventListener('change', function (e) {
     task.on('state_changed', function progress(snapshot) {
         var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         document.getElementById("progress").style.width = percentage + "%";
-
     }, function error(err) {
         console.log(e.message);
     }, function complete() {
@@ -57,17 +56,13 @@ function add_to_firebase(url) {
     if (img_url == undefined) {
         img_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToB0wJaVTzznDcKwzhKBgvHiDmrHntTZq32_0l3waI8VXA0vaF&s"
     }
-    if (name == "" || lastname == "" || position == "" || score == "" || email == "" || phone == "" || branch == "") {
-        alert("ກະລູນາປ້ອນຊໍ້ມູນໃຫ່ຄົບຖ້ວນ");
+    if (name == undefined || lastname == undefined || position == undefined || score == undefined || email == undefined || phone == undefined || branch == undefined) {
+        alert("ກະລູນາປ້ອນຊໍ້ມູນໃຫ້ຄົບຖ້ວນ");
         return;
     } else {
         insert_data(name, lastname, position, score, email, phone, branch, img_url);
     }
 
-}
-
-function edit_database() {
-    console.log(id);
 
 }
 
@@ -83,7 +78,9 @@ function insert_data(name, lastname, position, score, email, phone, branch, img_
         branch: branch,
         img_url: img_url,
     }
-    firebase.database().ref("user_vote" + "/" + "user_list").push(add_to_list).then(function () {
+
+    firebase.database().ref("vote_on_system" + "/" + "user_list").push(add_to_list).then(function () {
+        console.log("success insert to firebase");
         document.getElementById("alert1").hidden = false;
     }).catch(function (error) {
         console.log(error.message);
@@ -96,7 +93,7 @@ function view_vote_list() {
 
 
 function view_list() {
-    window.location.href = "../admin/listresult.html";
+    window.location.href = "../admin/managevote.html";
 }
 
 function logout() {

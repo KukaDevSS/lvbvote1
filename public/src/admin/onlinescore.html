@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ຜົນໂຫວດ</title>
+  <link rel="stylesheet" href="../css/admin/ViewResult.css">
+  <link rel="stylesheet" href="../css/admin/ListViewVote.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="../../src/css/menu.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" id="grad">
+    <div class="row" style="width: 100%;padding: 10px;">
+      <div class="col-md-5">
+        <img src="../images/names.png" width="100%" height="100%">
+      </div>
+      <div class="col-md-5" style="text-align: center;font-family: lao notisan; color:antiquewhite;">
+      </div>
+      <div class="col-md-2" style="padding-left:5%;padding-top: 1%; text-align: end">
+        <button class=" btn btn-danger my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;" type="button"
+          onclick="menu()">ກັບສູ່ໜ້າຫຼັກ</button>
+      </div>
+
+    </div>
+  </nav>
+  <div id="table">
+    <h1>ຄະແນນຜົນໂຫວດອອນໄລ໌</h1>
+    <div class="tabel" name="data">
+      <table class="table table-striped" id="data">
+        <thead>
+          <tr>
+            <th scope="col" style="text-align: center">ລຳດັບ</th>
+            <th scope="col" style="text-align: center">ຮູບພາບ</th>
+            <th scope="col" style="text-align: center">ຊື່ ແລະ ນາມສະກຸນ</th>
+            <th scope="col" style="text-align: center">ຕໍ່າແໜ່ງ</th>
+            <th scope="col" style="text-align: center">ຄະແນນ</th>
+          </tr>
+        </thead>
+        <tbody v-for="(value,index) in values" :key="index">
+          <tr>
+            <td style="text-align:center;" id="nametable">{{index+1}}</td>
+            <td><img :src="value.img_url" class="picture"></td>
+            <td id="nametable">
+              <h3>{{value.name}} {{value.lastname}}</h3>
+            </td>
+            <td id="nametable">{{value.position}}</td>
+            <td id="nametable" style="color:blue;">
+              <h2>{{value.score}}</h2>
+            </td>
+
+          </tr>
+        </tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+  <script src="../../api/database.js">
+  </script>
+  <script src="../../api/Onlinescore.js"></script>
+</body>
+
+</html>

@@ -6,19 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ໜ້າຕ່າງໂຫວດ</title>
-    <script src="../../api/ShowVoteUser.js"></script>
+    <!-- <script src="../../api/ShowVoteUser.js"></script> -->
+    <script src="../../api/test.js"></script>
+    <link rel="stylesheet" href="../../src/css/menu.css">
     <link rel="stylesheet" href="../css/admin/ViewResult.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="grad">
+        <div class="row" style="width: 100%;padding: 10px;">
+            <div class="col-md-5">
+                <img src="../images/names.png" width="100%" height="100%">
+            </div>
+            <div class="col-md-5" style="text-align: center;font-family: lao notisan; color:antiquewhite;">
+            </div>
+            <div class="col-md-2" style="padding-left:5%;padding-top: 1%; text-align: end">
+                <button class="btn btn-success my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;"
+                    type="button" onclick="score()" id="view" disabled>ເບີ່ງຜົນໂຫວດ</button>
+            </div>
+
+        </div>
+    </nav>
     <div id="alert1" style="text-align: center;font-family:lao notisan;">
-        <!-- <img src="../images/LVB.png" style="width: 60%; height:50%;"> -->
         <div class="alert alert-primary">
             <h4>ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກິດລາວຫວຽດ</h4>
             <strong>ກະລຸນາເລືອກລາຍການໂຫວດ</strong>
         </div>
+    </div>
+    <div class="alert alert-success" id="alert" hidden>
+        <strong>ທ່ານໂຫວດສຳເລັດແລ້ວ!</strong>
     </div>
     <div class="row" id="showVote">
     </div>

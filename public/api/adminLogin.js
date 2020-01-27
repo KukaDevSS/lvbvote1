@@ -26,7 +26,7 @@ function login_admin() {
                             email: email,
                             status: true
                         });
-                        window.location.href = "../src/admin/ViewResult.html";
+                        window.location.href = "../src/admin/menu.html";
                     } else {
                         document.getElementById("alert").hidden = false;
                     }

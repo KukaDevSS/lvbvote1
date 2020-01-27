@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ເພີ່ມຜູ່ໃຊ້ລະບົບ</title>
-    <script src="../../api/AddUsers.js"></script>
+    <script src="../../api/AddUser.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.login.css">
@@ -16,75 +16,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="../css/admin/ViewResult.css">
+    <link rel="stylesheet" href="../../src/css/menu.css">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#" style="font-family: lao notisan;">LaoVietBank</a>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="grad">
+        <div class="row" style="width: 100%;padding: 10px;">
+            <div class="col-md-5">
+                <img src="../images/names.png" width="100%" height="100%">
+            </div>
+            <div class="col-md-5" style="text-align: center;font-family: lao notisan; color:antiquewhite;">
+                <!-- <h3 style="padding-top:2%;">ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກີດລາວຫວຽດ</h3> -->
+            </div>
+            <div class="col-md-2" style="padding-left:5%;padding-top: 1%; text-align: end">
+                <button class=" btn btn-danger my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;"
+                    type="button" onclick="menu()">ກັບສູ່ໜ້າຫຼັກ</button>
+            </div>
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">ໜ້າຫຼັກ <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        ລາຍການໂຫວດ
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
-                            href="./AddData.html">ເພີ່ມລາຍການໂຫວດ</a>
-                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
-                            href="./ListViewVote.html">ລາຍການໂຫວດທັງໝົດ</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        ຜູ່ໃຊ້ລະບົບ
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
-                            href="#">ເພີ່ມຜູ່ໃຊ້ລະບົບ</a>
-                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
-                            href="./ListAlluser.html">ຜູ່ໃຊ້ທັງໝົດ</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="./ViewResult.html" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ຜົນໂຫວດ
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
-                            href="./ListResult.html">ການຈັດການຜົນໂຫວດ</a>
-                        <a class="dropdown-item" style="color: blue; font-family:lao notisan;"
-                            href="./ViewResult.html">ຜົນໂຫວດ</a>
-                    </div>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./ShowScoreVoted.html"> ສະແດງຄະແນນ <span class="sr-only"></span></a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-danger my-2 my-sm-0" style="font-family: lao notisan; color:white"
-                    onclick="logout()" type="button">ອອກຈາກລະບົບ</button>
-            </form>
         </div>
     </nav>
     <form>
-        <!-- <div class="imgcontainer">
-            <img src="../images/Lao-VietBank.png" alt="Avatar" class="avatar">
-        </div> -->
-
         <div class="container">
-            <label for="uname"><b>ອີເມວ</b></label>
-            <input type="text" placeholder="Enter Username" id="email">
+            <div class="alert alert-success" style="text-align: center" id="alert" hidden>
+                <strong>ເພີ່ມຜູ່ໃຊ້ລະບົບສຳເລັດແລ້ວ!</strong>
+            </div>
+            <h2 style="text-align: center;color:rgb(0, 103, 238);">ເພີ່ມຜູ່ໃຊ້ລະບົບ</h2>
+            <label for="email"><b>ອີເມວ</b></label>
+            <input type="text" placeholder="ກະລຸນາປ້ອນອີເມວ" id="email" required>
 
             <label for="psw"><b>ລະຫັດຜ່ານ</b></label>
-            <input type="password" placeholder="Enter Password" id="pass">
+            <input type="password" placeholder="ກະລຸນາປ້ອນລະຫັດຜ່ານ" id="pass" required>
 
             <button type="button" onclick="create_user()">ເພີ່ມຜູ່ໃຊ້ເຂົ້າລະບົບ</button>
         </div>

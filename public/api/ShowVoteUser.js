@@ -46,6 +46,7 @@ function vote(id) {
     get_score(id, current_score);
 }
 
+//set score from user
 function update_data(id, current_score, email, uid) {
     var update_score = current_score;
     update_score = current_score + 1;
@@ -77,7 +78,7 @@ function update_data(id, current_score, email, uid) {
                     }
                 });
             }).then(() => {
-                // window.location.href = "./success_vote.html";
+                window.location.href = "./success_vote.html";
             });;
         }
     });
@@ -95,19 +96,15 @@ function update_data(id, current_score, email, uid) {
         timeM: timeM,
     });
     // var get_voted = document.getElementById("vote_status").value;
-
 }
 
+//show list for vote
 function show_data() {
     var firebaseRef = firebase.database().ref("user_vote/user_list").orderByChild("score");
     firebaseRef.once("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var key = childSnapshot.key;
             var childdata = childSnapshot.val();
-            // console.log(childdata);
-            // console.log(childdata.name);
-            // console.log(key);
-
             document.getElementById("showVote").innerHTML += ` 
                     <div class="col-sm-4" style="padding-left:4%;padding-right:4%;padding-top:4%;">
                     <div class="card card-cascade">
@@ -136,7 +133,10 @@ function show_data() {
     // }
     // });
 }
+//end of show list vote
 
+
+//get last score for set new score
 function get_score(id, current_score) {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -153,7 +153,10 @@ function get_score(id, current_score) {
         }
     });
 }
+//end
 
+
+//logout
 function logout() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {

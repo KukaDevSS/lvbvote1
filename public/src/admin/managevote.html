@@ -5,25 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ຜູ່ໃຊ້ທັງໝົດ</title>
-    <script src="../../api/AllUser.js"></script>
+    <title>ຜົນໂຫວດ</title>
+    <script src="../../api/Pagevotesystem.js"></script>
+    <link rel="stylesheet" href="../css/admin/ViewResult.css">
     <link rel="stylesheet" href="../css/admin/ListViewVote.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <!-- <link rel="stylesheet" href="../css/admin/ViewResult.css"> -->
     <link rel="stylesheet" href="../../src/css/menu.css">
-
-
-
 </head>
 
 <body>
@@ -36,29 +30,50 @@
                 <!-- <h3 style="padding-top:2%;">ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກີດລາວຫວຽດ</h3> -->
             </div>
             <div class="col-md-2" style="padding-left:5%;padding-top: 1%; text-align: end">
-                <button class=" btn btn-danger my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;"
-                    type="button" onclick="menu()">ກັບສູ່ໜ້າຫຼັກ</button>
+                <button class=" btn btn-success my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;"
+                    type="button" onclick="addvote()">ເພີ່ມລາຍການໂຫວດ</button>
             </div>
 
         </div>
     </nav>
-    <h1>ຜູ່ໃຊ້ທັງໝົດພາຍໃນລະບົບ</h1>
-    <div class="tabel" name="data">
-        <table class="table table-striped" id="data">
-            <thead>
-                <tr>
-                    <th style="text-align: center" scope="col">ລຳດັບ </th>
-                    <th style="text-align: center" scope="col">ອີເມວ </th>
-                    <th style="text-align: center" scope="col">ລະຫັດຜ່ານ</th>
-                    <th style="text-align: center" scope="col">ສະຖານະ</th>
-                    <th style="text-align: center" scope="col">ສະຖານະການໂຫວດ</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="table">
+                <h1>ການຈັດການຜົນໂຫວດພາຍໃນລະບົບ</h1>
+                <div class="alert alert-success" id="alert" hidden>
+                    <strong>ເພີ່ມຜົນໂຫວດສຳເລັດ!</strong>
+                </div>
+                <div class="alert alert-success" id="alert1" hidden>
+                    <strong>ລົບລາຍການສຳເລັດແລ້ວ!</strong>
+                </div>
+                <div class="tabel" name="data">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center">ລຳດັບ</th>
+                                <th scope="col" style="text-align: center">ຮູບພາບ</th>
+                                <th scope="col" style="text-align: center">ຊື່ ແລະ ນາມສະກຸນ</th>
+                                <th scope="col" style="text-align: center">ຕໍ່າແໜ່ງ</th>
+                                <th scope="col" style="text-align: center">ຄະແນນ</th>
+                                <th scope="col" style="text-align: center">ການຈັດການ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data">
 
-            </tbody>
-        </table>
+                        </tbody>
+                        <tbody id="data1">
+
+                        </tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
 
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>

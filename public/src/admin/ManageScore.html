@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ຜົນໂຫວດທັງໝົດ</title>
+    <title>ຜົນໂຫວດ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/success.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="../../src/css/menu.css">
-    <script src="../../api/ResultScoress.js"></script>
+    <script src="../../controller/manageScore.js"></script>
 </head>
 
 <body>
@@ -24,30 +29,38 @@
             </div>
             <div class="col-md-2" style="padding-left:5%;padding-top: 1%; text-align: end">
                 <button class=" btn btn-danger my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;"
-                    type="button" onclick="logout1()">ອອກຈາກລະບົບ</button>
+                    type="button" onclick="menu()">ກັບສູ່ໜ້າຫຼັກ</button>
             </div>
 
         </div>
     </nav>
-    <div class="alert_success1">
-        <h3 style="color: rgb(0, 102, 255); margin-top: 30px;">ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກິດ ລາວ-ຫວຽດ</h3>
-        <div class="alert alert-success" style="margin-top:15px;" id="success">
-            <strong>ຜົນໂຫວດທັງໝົດ</strong>
-        </div>
-        <div class="row" id="card">
-        </div>
-        <input type="hidden" id="hdnSession" value="success" />
-        <div class="top" style="margin-top:5%;margin-bottom:10%;">
-            <button class="btn btn-success" onclick="updateData()"> ຜົນໂຫວດລ່າສຸດ</button>
-            <button class="btn btn-danger" onclick="logout1()"> ອອກຈາກລະບົບ</button>
+    <h3 style="padding-top:2%; color: rgb(0, 136, 255); text-align: center;font-family: lao notisan;">
+        ການຈັດການຄະແນນ</h3>
+
+    <div class="Main">
+        <div class="row">
+            <div class="column" name="create" id="one" onclick="onlineManagement()">
+                <img src="../images/checklist1.svg" class="add_Vote" alt="" srcset="">
+                <h2>ຈັດການໂຫວດອອນໄລ໌</h2>
+                <p>ຄຣິກ..</p>
+            </div>
+            <div class="column" id="two1" onclick="systemvote()">
+                <img src="../images/resume.svg" class="add_Vote" alt="" srcset="">
+                <h2>ຈັດການໂຫວດພາຍໃນລະບົບ</h2>
+                <p>ຄຣິກ..</p>
+            </div>
         </div>
     </div>
-
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <script src="../../api/database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+    <script src="../../api/database.js">
+
+    </script>
+    <script src="../../api/ViewResult.js">
+    </script>
 </body>
 
 </html>
