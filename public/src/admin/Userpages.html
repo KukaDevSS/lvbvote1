@@ -15,7 +15,6 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="../../src/css/menu.css">
-    <script src="../../controller/manageScore.js"></script>
 </head>
 
 <body>
@@ -34,31 +33,32 @@
 
         </div>
     </nav>
-    <h3 style="padding-top:2%; color: rgb(0, 136, 255); text-align: center;font-family: lao notisan;">
-        ການຈັດການຄະແນນ</h3>
+    <h3 style="padding-top:3%; color: rgb(0, 136, 255); text-align: center;font-family: lao notisan;">
+        ຜູ່ໃຊ້ທັງໝົດພາຍໃນລະບົບ</h3>
 
-    <div class="Main">
+    <div class="Main" style="margin-top: 2%;">
         <div class="row">
-            <div class="column" name="create" id="one" onclick="onlineManagement()">
-                <img src="../images/checklist1.svg" class="add_Vote" alt="" srcset="">
-                <h2>ຈັດການໂຫວດອອນໄລ໌</h2>
+            <div class="column" name="create" id="one" onclick="addUser()">
+                <img src="../images/add.svg" class="add_Vote" alt="" srcset="">
+                <h2>ເພີ່ມຜູ່ໃຊ້ລະບົບ</h2>
                 <p>ຄຣິກ..</p>
             </div>
-            <div class="column" id="two1" onclick="systemvote()">
-                <img src="../images/resume.svg" class="add_Vote" alt="" srcset="">
-                <h2>ຈັດການໂຫວດພາຍໃນລະບົບ</h2>
+            <div class="column" id="two" onclick="viewUser()">
+                <img src="../images/search.svg" class="add_Vote" alt="" srcset="">
+                <h2>ຜູ່ໃຊ້ທັງໝົດພາຍໃນລະບົບ</h2>
                 <p>ຄຣິກ..</p>
             </div>
         </div>
     </div>
+
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
     <script src="../../api/database.js">
-
     </script>
+    <script src="../../controller/UserControllerss.js"></script>
     <script src="../../api/ViewResult.js">
     </script>
 </body>

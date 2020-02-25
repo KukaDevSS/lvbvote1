@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ເພີ່ມລາຍການໂຫວດ</title>
+    <title>ຜົນໂຫວດ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -15,7 +15,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="../../src/css/menu.css">
-    <script src="../../controller/addVotePage.js"></script>
+    <script src="../../controller/manageScoress.js"></script>
 </head>
 
 <body>
@@ -25,6 +25,7 @@
                 <img src="../images/names.png" width="100%" height="100%">
             </div>
             <div class="col-md-5" style="text-align: center;font-family: lao notisan; color:antiquewhite;">
+                <!-- <h3 style="padding-top:2%;">ລະບົບໂຫວດທະນາຄານຮ່ວມທຸລະກີດລາວຫວຽດ</h3> -->
             </div>
             <div class="col-md-2" style="padding-left:5%;padding-top: 1%; text-align: end">
                 <button class=" btn btn-danger my-2 my-sm-0" style="font-family:lao notisan;padding: 15px;"
@@ -34,21 +35,30 @@
         </div>
     </nav>
     <h3 style="padding-top:2%; color: rgb(0, 136, 255); text-align: center;font-family: lao notisan;">
-        ເພີ່ມລາຍການໂຫວດທັງໝົດ</h3>
+        ການຈັດການຄະແນນ</h3>
 
     <div class="Main">
         <div class="row">
-            <div class="column" name="create" id="one" onclick="addOnline()">
-                <img src="../images/online-voting.svg" class="add_Vote" alt="" srcset="">
-                <h2>ເພີ່ມລາຍການໂຫວດອອນໄລ</h2>
+            <div class="column" name="create" id="one" onclick="onlineManagement()">
+                <img src="../images/checklist1.svg" class="add_Vote" alt="" srcset="">
+                <h2>ຈັດການໂຫວດອອນໄລ໌</h2>
                 <p>ຄຣິກ..</p>
             </div>
-            <div class="column" id="two1" onclick="addIncrease()">
-                <img src="../images/add-list.svg" class="add_Vote" alt="" srcset="">
-                <h2>ເພີ່ມໂຫວດພາຍໃນລະບົບ</h2>
+            <div class="column" id="two1" onclick="systemvote()">
+                <img src="../images/resume.svg" class="add_Vote" alt="" srcset="">
+                <h2>ຈັດການໂຫວດພາຍໃນລະບົບ</h2>
                 <p>ຄຣິກ..</p>
             </div>
         </div>
+        <div class="row">
+            <div class="column" id="three" onclick="listVote()">
+                <img src="../images/search.svg" class="add_Vote" alt="" srcset="">
+                <h2>ລາຍການຜູ່ສະໝັກ</h2>
+                <p>ຄຣິກ..</p>
+                <p></p>
+            </div>
+        </div>
+
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
@@ -57,6 +67,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
     <script src="../../api/database.js">
 
+    </script>
+    <script src="../../api/ViewResult.js">
     </script>
 </body>
 

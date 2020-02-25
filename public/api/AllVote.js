@@ -1,17 +1,26 @@
-function show_data() {
-    var firebaseRef = firebase.database().ref("All_user_added" + "/" + "user_list");
-    var count = 0;
-    firebaseRef.once("value", function (snapshot) {
-        snapshot.forEach((childSnapshot) => {
-            var key = childSnapshot.key;
-            var childdata = childSnapshot.val();
-            console.log(childdata);
+var app = new Vue({
+    el: '#table',
+    data: {
+        values: [],
+    },
+    created() {
+        const paths = firebase.database().ref("vote_on_system" + "/" + "user_list");
+        paths.on("child_added", snapshot => {
+            this.values.push({
+                ...snapshot.val(),
+                id: snapshot.key
+            });
         });
-    }, function (error) {
-        console.log("Error: " + error.code);
-    });
-}
+    },
+    methods: {
+        sortArrays(values) {
+            return values.slice().sort(function (a, b) {
+                return a.phone - b.phone;
+            });
+        }
+    },
 
+})
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -30,9 +39,7 @@ window.onload = function () {
             window.location.href = "../../index.html";
         }
     });
-    show_data();
 }
-
 
 
 function logout() {
@@ -50,8 +57,11 @@ function logout() {
                 window.location.href = "../../index.html"
             }).catch(function (error) {
                 console.log(error.message);
-
             });
         }
     });
+}
+
+function menu() {
+    window.location.href = "../admin/Main_menu.html"
 }

@@ -6,20 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ຜູ່ໃຊ້ທັງໝົດ</title>
-    <script src="../../api/AllUser.js"></script>
     <link rel="stylesheet" href="../css/admin/ListViewVote.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <!-- <link rel="stylesheet" href="../css/admin/ViewResult.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="../../src/css/menu.css">
 
 
@@ -43,7 +39,7 @@
         </div>
     </nav>
     <h1>ຜູ່ໃຊ້ທັງໝົດພາຍໃນລະບົບ</h1>
-    <div class="tabel" name="data">
+    <div id="tabel" class="tabel" name="data">
         <table class="table table-striped" id="data">
             <thead>
                 <tr>
@@ -52,9 +48,18 @@
                     <th style="text-align: center" scope="col">ລະຫັດຜ່ານ</th>
                     <th style="text-align: center" scope="col">ສະຖານະ</th>
                     <th style="text-align: center" scope="col">ສະຖານະການໂຫວດ</th>
+
                 </tr>
             </thead>
-            <tbody>
+            <tbody v-for="(value,index) in values" :key="index">
+                <tr>
+                    <td>{{index+1}}</td>
+                    <td>{{value.email}}</td>
+                    <td>{{value.pass}}</td>
+                    <td>{{value.status}}</td>
+                    <td>{{value.vote}}</td>
+                </tr>
+            </tbody>
 
             </tbody>
         </table>
@@ -67,6 +72,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
     <script src="../../api/database.js">
     </script>
+    <script src="../../api/AllUser.js"></script>
 </body>
 
 </html>

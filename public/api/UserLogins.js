@@ -6,7 +6,6 @@ function login_vote() {
     } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('pass').value;
-        console.log("login");
 
 
         if (email.length < 4) {
@@ -46,24 +45,7 @@ function login_vote() {
                         uid: uid,
                         status: true
                     });
-                    var ref = firebase.database().ref("Voted_user");
-                    ref.orderByKey().on("child_added", function (snapshot) {
-                        if (uid == snapshot.key) {
-                            var firebaseRef = firebase.database().ref("Voted_user");
-                            firebaseRef.on("value", function (snapshot) {
-                                var uid_voted = snapshot.child(uid).val().uid;
-                                var date_voted = snapshot.child(uid).val().today;
-                                var status = snapshot.child(uid).val().status;
-                                var time = new Date();
-                                var today = time.getDate();
-                                if (date_voted == today && uid == uid_voted && status == 1) {
-                                    window.location.href = "../src/user/success_vote.html";
-                                }
-                            });
-                        } else {
-                            window.location.href = "../src/user/VoteData.html";
-                        }
-                    })
+                    window.location.href = "../src/user/VoteData.html";
                 }
             });
             // window.location.href = "../src/user/authen_user.html";

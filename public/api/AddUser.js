@@ -41,7 +41,7 @@ function create_user() {
 }
 
 function menu() {
-    window.location.href = "../admin/menu.html"
+    window.location.href = "../admin/Main_menu.html"
 }
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {

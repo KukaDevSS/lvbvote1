@@ -117,5 +117,5 @@ function logout() {
 }
 
 function menu() {
-    window.location.href = "../admin/menu.html"
+    window.location.href = "../admin/Main_menu.html"
 }

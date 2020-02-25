@@ -91,6 +91,28 @@ function update_data(id, current_score, email, uid) {
                 document.getElementById(id).disabled = true;
                 document.getElementById("alert").hidden = false;
                 document.getElementById("view").disabled = false;
+                firebase.auth().onAuthStateChanged(function (user) {
+                    if (user) {
+                        var email1 = user.email;
+                        var paths = firebase.database().ref("All_user_added" + "/" + "user_list");
+                        paths.once("value", function (snapshot) {
+                            snapshot.forEach((childSnapshot) => {
+                                var key = childSnapshot.key;
+                                var childdata = childSnapshot.val();
+                                if (childdata.email == email1) {
+                                    var statuspath = firebase.database().ref("All_user_added" + "/" + "user_list" + "/" + key);
+                                    statuspath.set({
+                                        email: email1,
+                                        status: true,
+                                        vote: true,
+                                    });
+                                }
+                            });
+                        }).then(() => {
+                            // window.location.href = "./showvote.html";
+                        });;
+                    }
+                });
             }
             if (key == uid && value.lastvote_id != id) {
                 //get old vote score & delete old score
@@ -166,28 +188,12 @@ function show_data() {
         snapshot.forEach(function (childSnapshot) {
             var key = childSnapshot.key;
             var childdata = childSnapshot.val();
-            // document.getElementById("showVote").innerHTML += ` 
-            //         <div class="col-sm-4" style="padding-left:4%;padding-right:4%;padding-top:4%;">
-            //         <div class="card card-cascade">
-            //             <div class="view view-cascade overlay">
-            //                 <img class="card-img-top" src="${childdata.img_url}"
-            //                     alt="Card image cap">
-            //             </div>
-            //             <div class="card-body card-body-cascade text-center">
-            //                 <h4 class="card-title" style="font-family:lao notisan;"><strong>${childdata.name + " "+ childdata.lastname}</strong></h4>
-            //                 <h6 class="font-weight-bold indigo-text py-2" style="font-family:lao notisan;">ຕໍ່າແໜ່ງ: ${childdata.position} </h6>
-            //                 <h6 class="font-weight-bold indigo-text py-2" style="font-family:lao notisan;">ສາຂາ: ${childdata.branch} </h6>
-            //                 <button id="${key}" onclick="vote(id)" style="font-family: lao notisan; padding: 12px;padding-left: 25px;padding-right:25px;"
-            //                     class="btn btn-primary">ກົດປຸ່ມເພື່ອໂຫວດ</button>
-            //             </div>
-            //         </div>
-            //     </div>`
             document.getElementById("showVote").innerHTML += `
             <div class="col-sm-4"style="padding-left:4%;padding-right:4%;padding-top:1%;">
                 <div class="card">
                     <div class="card-body card-body-cascade text-center" >
                         <img src="${childdata.img_url}"
-                            style="width: 100%;height:220px;border-radius: 4px;">
+                            style="width: 100%;height:280px;border-radius: 4px;">
                             <h4 class="card-title" style="font-family:lao notisan; padding-top: 15px;color:#1976d2;"><strong>${childdata.name + " "+ childdata.lastname}</strong></h4>
                                         <h6 class="font-weight-bold indigo-text py-2" style="font-family:lao notisan;">ຕໍ່າແໜ່ງ: ${childdata.position} </h6>
                                         <h6 class="font-weight-bold indigo-text py-2" style="font-family:lao notisan;">ສາຂາ: ${childdata.branch} </h6>

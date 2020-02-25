@@ -1,40 +1,55 @@
-function show_data() {
-    var firebaseRef = firebase.database().ref("All_user_added" + "/" + "user_list");
-    var count = 0;
-    firebaseRef.once("value", function (snapshot) {
-        snapshot.forEach((childSnapshot) => {
-            var key = childSnapshot.key;
-            var childdata = childSnapshot.val();
-            var status = childdata.status;
-            var vote = childdata.vote;
+var app = new Vue({
+    el: '#tabel',
+    data: {
+        values: [],
+    },
+    created() {
+        const values = firebase.database().ref("All_user_added" + "/" + "user_list").orderByChild('score');
+        values.on("child_added", snapshot => {
+            var status = snapshot.val().status;
+            var vote = snapshot.val().vote;
             if (status == true) {
                 status = "ເຂົ້າໃຊ້ລະບົບ";
             } else {
                 status = "ບໍ່ເຂົ້າໃຊ້ລະບົບ";
             }
-
             if (vote == true) {
                 vote = "ໂຫວດຮຽບຮ້ອຍແລ້ວ";
             } else {
                 vote = "ບໍ່ໂຫວດ"
             }
-            count += 1;
-            document.getElementById("data").innerHTML += ` 
-            <tbody>
-                <tr>
-                <td>${count}</td>
-                <td>${childdata.email}</td>
-                <td>${childdata.pass}</td>
-                <td>${status}</td>
-                <td>${vote}</td>
-                </tr>
-            </tbody>`
-
+            this.values.push({
+                ...snapshot.val(),
+                status: status,
+                vote: vote
+            });
         });
-    }, function (error) {
-        console.log("Error: " + error.code);
-    });
-}
+        values.on("child_changed", () => {
+            this.values = [];
+            values.on("child_added", snapshot => {
+                var status = snapshot.val().status;
+                var vote = snapshot.val().vote;
+                if (status == true) {
+                    status = "ເຂົ້າໃຊ້ລະບົບ";
+                } else {
+                    status = "ບໍ່ເຂົ້າໃຊ້ລະບົບ";
+                }
+                if (vote == true) {
+                    vote = "ໂຫວດຮຽບຮ້ອຍແລ້ວ";
+                } else {
+                    vote = "ບໍ່ໂຫວດ"
+                }
+                this.values.push({
+                    ...snapshot.val(),
+                    status: status,
+                    vote: vote
+                });
+            });
+        });
+
+    },
+
+})
 
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -81,5 +96,5 @@ function logout() {
 }
 
 function menu() {
-    window.location.href = "../admin/menu.html"
+    window.location.href = "../admin/Main_menu.html"
 }

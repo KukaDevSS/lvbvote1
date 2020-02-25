@@ -96,7 +96,7 @@ function view_vote_list() {
 
 
 function view_list() {
-    window.location.href = "../admin/listresult.html";
+    window.location.href = "../admin/ListResult.html";
 }
 
 function logout() {
@@ -120,5 +120,5 @@ function logout() {
 }
 
 function menu() {
-    window.location.href = "../admin/menu.html"
+    window.location.href = "../admin/Main_menu.html"
 }

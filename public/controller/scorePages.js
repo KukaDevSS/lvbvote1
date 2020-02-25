@@ -1,28 +1,14 @@
-var app = new Vue({
-    el: '#table',
-    data: {
-        values: [],
-    },
-    created() {
-        const values = firebase.database().ref("user_vote" + "/" + "user_list").orderByChild('score');
-        values.on("child_added", snapshot => {
-            this.values.push(snapshot.val());
-        });
-        values.on("child_changed", () => {
-            this.values = [];
-            values.on("child_added", snapshot => {
-                this.values.push(snapshot.val());
-            });
-        });
-
-    },
-
-})
-
 function menu() {
     window.location.href = "../admin/Main_menu.html"
 }
 
+function online_score() {
+    window.location.href = "../admin/onlinescore.html"
+}
+
+function system_score() {
+    window.location.href = "../admin/systemscore.html"
+}
 window.onload = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
