@@ -29,7 +29,6 @@ picture.addEventListener('change', function (e) {
     task.on('state_changed', function progress(snapshot) {
         var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         document.getElementById("progress").style.width = percentage + "%";
-
     }, function error(err) {
         console.log(e.message);
     }, function complete() {
