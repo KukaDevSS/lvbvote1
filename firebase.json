@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": "public",
-    "site": "lvbvote-2020",
+    "site": "lvbvote2024",
     "ignore": [
       "firebase.json",
       "**/.*",
