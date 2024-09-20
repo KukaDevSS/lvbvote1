@@ -31,16 +31,18 @@ var app = new Vue({
         })
     },
     methods: {
-        Update_score: function (id, score) {
+        Update_score: function (id, score,newscore) {
             var paths = firebase.database().ref("vote_on_system" + "/" + "user_list");
             paths.child(id).update({
                 score: score + 1,
+                newscore:newscore-1
             });
         },
-        down_score: function (id, score) {
+        down_score: function (id, score,newscore) {
             var paths = firebase.database().ref("vote_on_system" + "/" + "user_list");
             paths.child(id).update({
                 score: score - 1,
+                newscore:newscore+1
             });
         },
 
@@ -103,4 +105,24 @@ function menu() {
 
 function addvote() {
     window.location.href = "../admin/addvotesystem.html"
+}
+
+function SetScoreMaxVote() {   
+    let person = prompt("Please enter max score:", "");
+    var score = 0;
+    if (person == null || person == "") {
+        console.log('nulll der');        
+      } else {
+        score = parseInt(person);
+      } 
+    const paths = firebase.database().ref("vote_on_system" + "/" + "user_list");
+            paths.on("child_added", snapshot => {
+                console.log('snapshot.key',snapshot.key);
+                paths.child(snapshot.key).update({
+                    score: score,
+                    newscore:0,
+                    maxscore : score
+                });
+            });
+            location.reload();
 }

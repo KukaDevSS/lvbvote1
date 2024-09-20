@@ -28,6 +28,7 @@ function login_admin() {
                         });
                         window.location.href = "../src/admin/Main_menu.html";
                     } else {
+                        alert("ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
                         document.getElementById("alert").hidden = false;
                     }
 

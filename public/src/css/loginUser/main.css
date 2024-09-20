@@ -1,5 +1,17 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
+@font-face {
+  font-family: 'Phetsarath OT';
+  src: url('../fonts/poppins/PhetsarathOT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font to the body */
+body {
+  font-family: 'Phetsarath OT', sans-serif;
+}
+
 
 @font-face {
   font-family: Poppins-Regular;

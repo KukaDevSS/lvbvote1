@@ -23,7 +23,6 @@ function show_data() {
             </tbody>`
             var data = document.getElementsByName("status").values;
             console.log(data);
-
         });
     }, function (error) {
         console.log("Error: " + error.code);

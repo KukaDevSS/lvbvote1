@@ -1,3 +1,4 @@
+
 function login_vote() {
     if (firebase.auth().currentUser) {
         // [START signout]
@@ -18,6 +19,8 @@ function login_vote() {
         }
         firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
             firebase.auth().onAuthStateChanged(function (user) {
+                console.log("hhhhh",user);
+                
                 if (user) {
                     // User is signed in.
                     var email_user = user.email;
@@ -45,7 +48,11 @@ function login_vote() {
                         uid: uid,
                         status: true
                     });
-                    window.location.href = "../src/user/VoteData.html";
+                    // window.location.href = "../src/user/VoteData.html";
+                    // for deployment
+                    window.location.href = "../src/admin/Main_menu.html";
+                    // for debugging
+                    window.location.href = "../public/src/admin/Main_menu.html";
                 }
             });
             // window.location.href = "../src/user/authen_user.html";

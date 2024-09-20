@@ -43,12 +43,12 @@
                         <th scope="col" style="text-align: center">ຮູບພາບ</th>
                         <th scope="col" >ຊື່ ແລະ ນາມສະກຸນ</th>
                         <th scope="col" >ຕໍ່າແໜ່ງ</th>
-                        <th scope="col" style="text-align: center">ຄະແນນໄດ້</th>
-                        <th scope="col" style="text-align: center">ຄະແນນເສຍ</th>
+                        <th scope="col" style="text-align: center">ຄະແນນເຕັມ</th>
+                        <th scope="col" style="text-align: center">ຄະແນນໂຫວດອອກ</th>
+                        <!-- <th scope="col" style="text-align: center">ຄະແນນທັງໝົດ</th> -->
                         <th scope="col" style="text-align: center">ຈັດອັນດັບ</th>
                     </tr>
                 </thead>
-                <!-- <P v-bind="show(values)"></P> -->
                 <tbody v-for="(value,index) in sortArrays(values)" :key="index" v-for="rank in ranks" :key="index">
                     <tr>
                         <td style="text-align:center;" id="nametable">
@@ -63,11 +63,14 @@
                             <h3>{{value.score}}</h3>
                         </td>
                         <td id="nametable" style="color:red;">
-                            <h3>{{106-value.score}}</h3>
+                            <h3>{{value.newscore}}</h3>
                         </td>
-                        <td id="nametable" style="color:green;">
-                            <h3>{{sortArrays1(value.score)}}</h3>
-                        </td>
+                        <!-- <td id="nametable" style="color:red;"></td>
+                            <h3>{{calCulateScore(value.score - value.newscore)}}</h3>
+                        </td> -->
+                            <td id="nametable" style="color:green;">
+                                <h3>{{sortArrays1(value.score)}}</h3>
+                            </td>
                     </tr>
                 </tbody>
 

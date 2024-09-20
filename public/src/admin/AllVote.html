@@ -27,7 +27,7 @@
                 <img src="../images/names.png" class="mb-2" width="100%" height="100%">
             </div>
             <div class="col-sm text-right">
-                <button class=" btn btn-success btn-sm" style="font-family:lao notisan;padding: 15px;"
+                <button class=" btn btn-success btn-sm" style="font-family: phetsarath OT;padding: 15px;"
                     type="button" onclick="addvote()">ເພີ່ມລາຍການໂຫວດ</button>
             </div>
 
@@ -36,37 +36,37 @@
     <div class="row">
         <div class="col-md-12">
             <div id="table">
-                <h1>ລາຍຊື່ຄະນະເລືອກຕັ້ງ</h1>
+                <h1 style="font-family: phetsarath OT">ລາຍຊື່ຄະນະເລືອກຕັ້ງ</h1>
                 <div class="alert alert-success" id="alert" hidden>
-                    <strong>ເພີ່ມຜົນໂຫວດສຳເລັດ!</strong>
+                    <strong style="font-family: phetsarath OT">ເພີ່ມຜົນໂຫວດສຳເລັດ!</strong>
                 </div>
                 <div class="alert alert-success" id="alert1" hidden>
-                    <strong>ລົບລາຍການສຳເລັດແລ້ວ!</strong>
+                    <strong style="font-family: phetsarath OT">ລົບລາຍການສຳເລັດແລ້ວ!</strong>
                 </div>
                 <div id="tabel" class="tabel" name="data">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" style="text-align: center">ລຳລັບ</th>
-                                <th scope="col" style="text-align: center">ຮູບພາບ</th>
-                                <th scope="col" style="text-align: center">ຊື່ ແລະ ນາມສະກຸນ</th>
-                                <th scope="col" style="text-align: center">ຕໍ່າແໜ່ງ</th>
-                                <th scope="col" style="text-align: center">ອາຍຸ</th>
-                                <th scope="col" style="text-align: center">ໝາຍເຫດ</th>
+                                <th scope="col" style="text-align: center; font-family: phetsarath OT;">ລຳລັບ</th>
+                                <th scope="col" style="text-align: center; font-family: phetsarath OT;">ຮູບພາບ</th>
+                                <th scope="col" style="text-align: center; font-family: phetsarath OT;">ຊື່ ແລະ ນາມສະກຸນ</th>
+                                <th scope="col" style="text-align: center; font-family: phetsarath OT;">ຕໍ່າແໜ່ງ</th>
+                                <th scope="col" style="text-align: center; font-family: phetsarath OT;">ອາຍຸ</th>
+                                <th scope="col" style="text-align: center; font-family: phetsarath OT;">ໝາຍເຫດ</th>
                             </tr>
                         </thead>
                         <tbody v-for="(value,index) in sortArrays(values)" :key="index">
                             <tr>
                                 <td style="text-align:center;" id="nametable">{{index+1}}</td>
                                 <td><img :src="value.img_url" class="picture"></td>
-                                <td id="nametable">
+                                <td id="nametable" style="font-family: phetsarath OT">
                                     <h4>{{value.name}} {{value.lastname}}</h4>
                                 </td>
-                                <td id="nametable">{{value.position}}</td>
-                                <td id="nametable" style="color:blue;">
+                                <td id="nametable" style="font-family: phetsarath OT">{{value.position}}</td>
+                                <td id="nametable" style="color:blue;font-family: phetsarath OT;">
                                     <h2>{{value.email}}</h2>
                                 </td>
-                                <td id="nametable">
+                                <td id="nametable" style="font-family: phetsarath OT">
                                     {{value.branch}}
                                 </td>
 
@@ -91,8 +91,12 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
     <script src="../../api/database.js">
-    </script>
-    <script src="../../api/AllVote.js"></script>
+    </script> 
+    <script src="../../api/Pagevotesystem.js"></script>
+
+    <!-- add new -->
+    <!-- <script src="../../api/AllVote.js"></script> -->
+   
 </body>
 
 </html>

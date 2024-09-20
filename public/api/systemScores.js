@@ -7,11 +7,16 @@ var app = new Vue({
     },
     created() {
         const values = firebase.database().ref("vote_on_system" + "/" + "user_list").orderByChild('score');
+        console.log('csdscds',values);
+        
         values.on("child_added", snapshot => {
+            console.log('csdscds',snapshot.val());
             this.values.push(snapshot.val());
             this.score.push(
                 snapshot.val().score,
             );
+            console.log('this.values',this.values);
+            
         });
 
         values.on("child_changed", () => {
@@ -30,6 +35,9 @@ var app = new Vue({
             return values.slice().sort(function (a, b) {
                 return a.phone - b.phone;
             });
+        },
+        calCulateScore(a,b) {
+            return a - b;
         },
         sortArrays1(score) {
             var d = this.score.slice().sort(function (a, b) {

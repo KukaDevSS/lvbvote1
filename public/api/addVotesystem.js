@@ -77,6 +77,8 @@ function insert_data(name, lastname, position, score, email, phone, branch, img_
         phone: phone,
         branch: branch,
         img_url: img_url,
+        newscore : 0,
+        maxscore : 0
     }
 
     firebase.database().ref("vote_on_system" + "/" + "user_list").push(add_to_list).then(function () {
